@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vezeeta.Models
 {
+    [Index("phone", Name = "phone_unique", IsUnique = true)]
     public partial class Clinic
     {
         public Clinic()

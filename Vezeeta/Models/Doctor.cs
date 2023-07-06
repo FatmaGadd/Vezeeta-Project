@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vezeeta.Models
 {
+    [Index("email", Name = "email_unique", IsUnique = true)]
     public partial class Doctor
     {
         public Doctor()
@@ -28,8 +29,8 @@ namespace Vezeeta.Models
         [Required]
         [StringLength(150)]
         public string password { get; set; }
-        [MaxLength(250)]
-        public byte[] image { get; set; }
+        [StringLength(250)]
+        public string image { get; set; }
         [Required]
         [StringLength(1)]
         public string gender { get; set; }
@@ -39,7 +40,6 @@ namespace Vezeeta.Models
         [Required]
         [StringLength(150)]
         public string verification { get; set; }
-        [Required]
         [StringLength(150)]
         public string status { get; set; }
         public int id_specialize { get; set; }
@@ -52,6 +52,9 @@ namespace Vezeeta.Models
         [StringLength(50)]
         public string waiting_time { get; set; }
         public bool is_deleted { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string name { get; set; }
 
         [ForeignKey("id_specialize")]
         [InverseProperty("Doctors")]

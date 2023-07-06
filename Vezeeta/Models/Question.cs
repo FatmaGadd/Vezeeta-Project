@@ -29,6 +29,8 @@ namespace Vezeeta.Models
         public string gender { get; set; }
         public int spec_id { get; set; }
         public int? patient_id { get; set; }
+        [StringLength(50)]
+        public string type { get; set; }
 
         [ForeignKey("patient_id")]
         [InverseProperty("Questions")]
